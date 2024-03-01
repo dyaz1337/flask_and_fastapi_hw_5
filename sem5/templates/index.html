@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+{% if users %}
+<h1 class="text-center mb-3">Пользователи</h1>
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+        <td>Id</td>
+        <td>Имя</td>
+        <td>Почта</td>
+        <td>Пароль</td>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h1>Пользователей нету =(</h1>
+{% endif %}
+<a class="btn btn-secondary" href="#">Добавить нового пользователя</a>
+{% endblock %}
